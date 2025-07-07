@@ -6,5 +6,6 @@ public class BotTest {
     @Test
     void testExample() {
         assertEquals(2, 1 + 1);
+
     }
 }
