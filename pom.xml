@@ -30,5 +30,52 @@
       <version>5.9.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.telegram</groupId>
+      <artifactId>telegrambots</artifactId>
+      <version>6.7.0</version>
+    </dependency>
   </dependencies>
+
+  <build>
+  <plugins>
+  <!-- Плагин для указания главного класса -->
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.3.0</version>
+    <configuration>
+      <archive>
+        <manifest>
+          <mainClass>com.github.SimonSlu.bot.Main</mainClass>
+        </manifest>
+      </archive>
+    </configuration>
+  </plugin>
+  <!-- Плагин для создания "fat jar" со всеми зависимостями -->
+  <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <version>3.5.0</version>
+  <configuration>
+    <descriptorRefs>
+      <descriptorRef>jar-with-dependencies</descriptorRef>
+    </descriptorRefs>
+    <archive>
+      <manifest>
+        <mainClass>com.github.SimonSlu.bot.Main</mainClass>
+      </manifest>
+    </archive>
+  </configuration>
+  <executions>
+  <execution>
+  <phase>package</phase>
+  <goals>
+    <goal>single</goal>
+  </goals>
+  </execution>
+  </executions>
+  </plugin>
+  </plugins>
+  </build>
 </project>
