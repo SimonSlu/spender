@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Конфигурационные файлы
+src/main/resources/config.properties
+config.properties
